@@ -95,7 +95,6 @@ public class HuffWork {
 
             HuffNode hn = new HuffNode(i);
 
-            hn.key = i;
             hn.data = intArr[i];
 
             hn.left = null;
@@ -110,12 +109,9 @@ public class HuffWork {
 
             Element x = pq.extractMin();
             Element y = pq.extractMin();
-            HuffNode node = new HuffNode(i);
-
-            node.key = x.key + y.key;
+            HuffNode node = new HuffNode(x.key + y.key);
             node.left = ((HuffNode) x.data);
             node.right = ((HuffNode) y.data);
-
             root = node;
 
             pq.insert(new Element(node.key, node));
