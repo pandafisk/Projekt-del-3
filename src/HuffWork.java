@@ -37,9 +37,6 @@ public class HuffWork {
         int available = file.available();
         System.out.println("the real available: " + available);
 
-//        FileOutputStream out = new FileOutputStream(
-//                "C:\\Users\\Troels\\Dropbox\\SDU Datalogi\\2. semester\\DM 507 - Algoritmer og datastrukturer\\Projekt del 3\\text2.txt");
-
         for (int i = 0; i < available; i++) {
             int next = file.read();
             System.out.print(next + " ");
@@ -55,12 +52,9 @@ public class HuffWork {
         int[] arr = new int[available];
         System.out.println("the real available: " + available);
 
-//        FileOutputStream out = new FileOutputStream(
-//                "C:\\Users\\Troels\\Dropbox\\SDU Datalogi\\2. semester\\DM 507 - Algoritmer og datastrukturer\\Projekt del 3\\text2.txt");
-
         for (int i = 0; i < available; i++) {
             int next = file.read();
-//            System.out.print(next + " ");
+//            System.out.println(next + " ");
             out.write(next);
             arr[i] = next;
         }

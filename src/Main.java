@@ -24,8 +24,8 @@ public class Main {
 
         String[] strArr = new String[256];
 
-        FileInputStream text = callIn("C:\\Users\\Troels\\Dropbox\\SDU Datalogi\\2. semester\\DM 507 - Algoritmer og datastrukturer\\Projekt del 3\\text.txt");
-        FileOutputStream out = callOut("C:\\Users\\Troels\\Dropbox\\SDU Datalogi\\2. semester\\DM 507 - Algoritmer og datastrukturer\\Projekt del 3\\text2.txt");
+        FileInputStream text = callIn("/home/bisch/Programming/AlgortimeProjektIII/Projekt-del-3/Testfiles/text.txt");
+        FileOutputStream out = callOut("/home/bisch/Programming/AlgortimeProjektIII/Projekt-del-3/Testfiles/text2.txt");
 
         BitInputStream in = new BitInputStream(text);
 
@@ -42,8 +42,8 @@ public class Main {
 //        Huffman2.printCode(strArr);
 //        System.out.println("huff, out");
 
-        FileInputStream text2 = callIn("C:\\Users\\Troels\\Dropbox\\SDU Datalogi\\2. semester\\DM 507 - Algoritmer og datastrukturer\\Projekt del 3\\text.txt");
-        FileOutputStream out2 = callOut("C:\\Users\\Troels\\Dropbox\\SDU Datalogi\\2. semester\\DM 507 - Algoritmer og datastrukturer\\Projekt del 3\\text3.txt");
+        FileInputStream text2 = callIn("/home/bisch/Programming/AlgortimeProjektIII/Projekt-del-3/Testfiles/text.txt");
+        FileOutputStream out2 = callOut("/home/bisch/Programming/AlgortimeProjektIII/Projekt-del-3/Testfiles/text3.txt");
         System.out.println("BOB!");
         int[] bob = HuffWork.readingByte2(text2, out2);
         BitOutputStream bos = new BitOutputStream(out2);
@@ -52,6 +52,25 @@ public class Main {
             
             bos.writeInt(Integer.parseInt(strArr[i]));
         }
+
+    }
+
+    public static FileInputStream callIn(String in) throws FileNotFoundException {
+        FileInputStream text = new FileInputStream(in);
+        return text;
+    }
+
+    public static FileOutputStream callOut(String in) throws FileNotFoundException {
+        FileOutputStream out = new FileOutputStream(in);
+        return out;
+    }
+}
+
+
+
+
+
+
 
 //
 //        System.out.println("Inserting 8,3,1,6,10,14,13,4,7");
@@ -79,15 +98,3 @@ public class Main {
 //            System.out.print(i);
 //            bos.writeInt(i);
 //        }
-    }
-
-    public static FileInputStream callIn(String in) throws FileNotFoundException {
-        FileInputStream text = new FileInputStream(in);
-        return text;
-    }
-
-    public static FileOutputStream callOut(String in) throws FileNotFoundException {
-        FileOutputStream out = new FileOutputStream(in);
-        return out;
-    }
-}

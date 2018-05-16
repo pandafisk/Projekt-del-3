@@ -15,7 +15,11 @@ public class Huffman2 {
 
         HuffNode left;
         HuffNode right;
+
+
     }
+
+
 
     public static void getCode(HuffNode root, String[] strArr, String s) {
 
