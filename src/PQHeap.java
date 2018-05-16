@@ -13,6 +13,8 @@
 //	Mathias Bischoff - mbisc17
 //	Troels Have - trhav17
 
+package src;
+
 import java.util.Arrays;
 
 public class PQHeap implements PQ{

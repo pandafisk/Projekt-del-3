@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 
+package src;
+
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
