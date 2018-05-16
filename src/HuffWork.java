@@ -17,7 +17,7 @@ import java.util.stream.IntStream;
  */
 public class HuffWork {
 
-    public static class HuffNode {
+    static class HuffNode {
 
         int key;
         int data;
@@ -62,64 +62,68 @@ public class HuffWork {
         return arr;
     }
 
-    public static Element HuffBuild(int[] intArr) {
-        int elementCount = (int) IntStream.of(intArr)
-                .filter(n -> n != 0)
-                .count();
+    public static void getCode(HuffNode root, String[] strArr, String s) {
 
-        System.out.println(elementCount);
 
-        if (elementCount > 0) {
-            PQ pq = new PQHeap(elementCount);
-
-            IntStream.range(0, intArr.length)
-                    .filter(n -> intArr[n] != 0)
-                    .forEach(n -> pq.insert(new Element(intArr[n], new HuffNode(n))));
-
-            for (int i = 0; i < elementCount - 1; i++) {
-                Element L = pq.extractMin();
-
-                Element R = pq.extractMin();
-                int key = L.key + R.key;
-
-                HuffNode node = new HuffNode(key);
-                pq.insert(new Element(key, node));
-                System.out.println("aded " + key + " with node: " + node);
-            }
-//            System.out.println(pq.extractMin());
-            return pq.extractMin();
-        }
-        return null;
-    }
-
-    public static String[] encoding(HuffNode root){
-
-        int[] i = new int[256];
-        String[] s = new String[256];
-        String str = "";
-        
-        InOrderTreeWalk(s, root, str);
-        for (int j = 0; j < i.length - 1; j++) {
-//            System.out.println(i[j] + ":" + s[j]);
-        }
-        return s;
-    }
-    
-    private static void InOrderTreeWalk(String[] strArr, HuffNode x, String str) {
-        if (x == null){
+        if (root.left == null && root.right == null) {
+//            System.out.println(root.key + ":" + s);
+            strArr[root.key] = s;
             return;
-        } if (x.left == null && x.right == null){
-            System.out.println("working?");
-            System.out.println(str);
-            strArr[x.key] = str;
-        } else {
-            
-            System.out.println("Going left");
-            InOrderTreeWalk(strArr, x.left, str + "0");
-            System.out.println("Going right");
-            InOrderTreeWalk(strArr, x.right, str + "1");
         }
-        
+
+        getCode(root.left, strArr, s + "0");
+        getCode(root.right, strArr, s + "1");
+
+
     }
+
+    public static void printCode (String[] strArr){
+        int count = 0;
+        for (int str = 0; str < strArr.length; str++){
+            count++;
+            System.out.println("byte " + str + ":" + strArr[str]);
+        }
+        System.out.println("count: " + count);
+    }
+
+    public static void HuffConstructor(int[] intArr, String[] strArr) {
+
+        int n = intArr.length;
+        PQ pq = new PQHeap(256);
+
+        for (int i = 0; i < n; i++) {
+
+            HuffNode hn = new HuffNode(i);
+
+            hn.key = i;
+            hn.data = intArr[i];
+
+            hn.left = null;
+            hn.right = null;
+
+            pq.insert(new Element(hn.key, hn));
+        }
+
+        HuffNode root = null;
+
+        for (int i = 1; i < intArr.length; i++) {
+
+            Element x = pq.extractMin();
+            Element y = pq.extractMin();
+            HuffNode node = new HuffNode(i);
+
+            node.key = x.key + y.key;
+            node.left = ((HuffNode) x.data);
+            node.right = ((HuffNode) y.data);
+
+            root = node;
+
+            pq.insert(new Element(node.key, node));
+        }
+        getCode(root, strArr, "");
+    }
+
+
+
 
 }

@@ -37,11 +37,10 @@ public class Main {
         }
 
         System.out.println("Calling the Huff-constructor");
-        Huffman2.HuffConstructor(intArr, strArr);
+        HuffWork.HuffConstructor(intArr, strArr);
 //        System.out.println("huff");
-//        Huffman2.printCode(strArr);
+//        HuffWork.printCode(strArr);
 //        System.out.println("huff, out");
-
         FileInputStream text2 = callIn("/home/bisch/Programming/AlgortimeProjektIII/Projekt-del-3/Testfiles/text.txt");
         FileOutputStream out2 = callOut("/home/bisch/Programming/AlgortimeProjektIII/Projekt-del-3/Testfiles/text3.txt");
         System.out.println("BOB!");
@@ -79,7 +78,7 @@ public class Main {
 //            d.insert(insertValues[i]);
 //        }
 //        d.orderedTraversal();
-//        Huffman2.printCode(strArr);
+//        HuffWork.printCode(strArr);
 //            System.out.print(i);
 //            bos.writeInt(i);
 //        }
