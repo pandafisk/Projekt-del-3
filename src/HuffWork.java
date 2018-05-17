@@ -16,11 +16,7 @@ import java.util.stream.IntStream;
  * @author Troels
  */
 public class HuffWork {
-<<<<<<< HEAD
-=======
-	
-	
->>>>>>> 53eb3803677997fa3fea3d4fd5fdcfef8cfcdf4d
+
 
     static class HuffNode {
 
