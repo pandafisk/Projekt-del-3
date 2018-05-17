@@ -40,17 +40,17 @@ public class Main {
         HuffWork.HuffConstructor(intArr, strArr);
 
         text = callIn("/home/bisch/Programming/AlgortimeProjektIII/Projekt-del-3/Testfiles/text.txt");
-        FileOutputStream out2 = callOut("/home/bisch/Programming/AlgortimeProjektIII/Projekt-del-3/Testfiles/text3.txt");
+        out = callOut("/home/bisch/Programming/AlgortimeProjektIII/Projekt-del-3/Testfiles/text3.txt");
         System.out.println("BOB!");
-        int[] bob = HuffWork.readingByte2(text, out2);
-        BitOutputStream bos = new BitOutputStream(out2);
+        int[] bob = HuffWork.readingByte2(text, out);
+        BitOutputStream bos = new BitOutputStream(out);
         for (int i : bob) {
             System.out.println(i + " : " + Long.parseLong(strArr[i]) + " - pik - " + strArr[i]);
             
             bos.writeInt(Integer.parseInt(strArr[i]));
         }
-
         text.close();
+
 
     }
 

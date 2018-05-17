@@ -16,8 +16,6 @@ import java.util.stream.IntStream;
  * @author Troels
  */
 public class HuffWork {
-	
-	//La Cor er en taber!
 
     static class HuffNode {
 
@@ -56,8 +54,7 @@ public class HuffWork {
 
         for (int i = 0; i < available; i++) {
             int next = file.read();
-//            System.out.println(next + " ");
-            out.write(next);
+            // System.out.println(next + " ");
             arr[i] = next;
         }
 
