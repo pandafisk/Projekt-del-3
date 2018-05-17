@@ -64,7 +64,6 @@ public class HuffWork {
 
     public static void getCode(HuffNode root, String[] strArr, String s) {
 
-
         if (root.left == null && root.right == null) {
 //            System.out.println(root.key + ":" + s);
             strArr[root.key] = s;

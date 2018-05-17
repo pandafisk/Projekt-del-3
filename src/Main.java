@@ -27,8 +27,6 @@ public class Main {
         FileInputStream text = callIn("/home/bisch/Programming/AlgortimeProjektIII/Projekt-del-3/Testfiles/text.txt");
         FileOutputStream out = callOut("/home/bisch/Programming/AlgortimeProjektIII/Projekt-del-3/Testfiles/text2.txt");
 
-        BitInputStream in = new BitInputStream(text);
-
         int[] intArr = HuffWork.readingByte(text, out, arr);
         for (int i = 0; i < intArr.length; i++) {
             if (intArr[i] > 0) {
@@ -36,21 +34,23 @@ public class Main {
             }
         }
 
+        text.close();
+
         System.out.println("Calling the Huff-constructor");
         HuffWork.HuffConstructor(intArr, strArr);
-//        System.out.println("huff");
-//        HuffWork.printCode(strArr);
-//        System.out.println("huff, out");
-        FileInputStream text2 = callIn("/home/bisch/Programming/AlgortimeProjektIII/Projekt-del-3/Testfiles/text.txt");
+
+        text = callIn("/home/bisch/Programming/AlgortimeProjektIII/Projekt-del-3/Testfiles/text.txt");
         FileOutputStream out2 = callOut("/home/bisch/Programming/AlgortimeProjektIII/Projekt-del-3/Testfiles/text3.txt");
         System.out.println("BOB!");
-        int[] bob = HuffWork.readingByte2(text2, out2);
+        int[] bob = HuffWork.readingByte2(text, out2);
         BitOutputStream bos = new BitOutputStream(out2);
         for (int i : bob) {
             System.out.println(i + " : " + Long.parseLong(strArr[i]) + " - pik - " + strArr[i]);
             
             bos.writeInt(Integer.parseInt(strArr[i]));
         }
+
+        text.close();
 
     }
 
