@@ -15,7 +15,7 @@ import java.io.IOException;
  *
  * @author Troels
  */
-public class Main {
+public class Encode {
 
     public static void main(String[] Args) throws FileNotFoundException, IOException {
         PQHeap pqh = new PQHeap(256);
@@ -45,7 +45,7 @@ public class Main {
         int[] bob = HuffWork.readingByte2(text, out);
         BitOutputStream bos = new BitOutputStream(out);
         for (int i : bob) {
-            System.out.println(i + " : " + Long.parseLong(strArr[i]) + " - pik - " + strArr[i]);
+            System.out.println(i + " : " + Long.parseLong(strArr[i]));
             
             bos.writeInt(Integer.parseInt(strArr[i]));
         }
