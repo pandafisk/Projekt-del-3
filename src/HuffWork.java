@@ -7,6 +7,7 @@
 package src;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.stream.IntStream;
@@ -116,6 +117,16 @@ public class HuffWork {
             pq.insert(new Element(node.key, node));
         }
         getCode(root, strArr, "");
+    }
+
+    public static FileInputStream callIn(String in) throws FileNotFoundException {
+        FileInputStream text = new FileInputStream(in);
+        return text;
+    }
+
+    public static FileOutputStream callOut(String in) throws FileNotFoundException {
+        FileOutputStream out = new FileOutputStream(in);
+        return out;
     }
 
 

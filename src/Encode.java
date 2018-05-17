@@ -24,8 +24,8 @@ public class Encode {
 
         String[] strArr = new String[256];
 
-        FileInputStream text = callIn("/home/bisch/Programming/AlgortimeProjektIII/Projekt-del-3/Testfiles/text.txt");
-        FileOutputStream out = callOut("/home/bisch/Programming/AlgortimeProjektIII/Projekt-del-3/Testfiles/text2.txt");
+        FileInputStream text = HuffWork.callIn("/home/bisch/Programming/AlgortimeProjektIII/Projekt-del-3/Testfiles/text.txt");
+        FileOutputStream out = HuffWork.callOut("/home/bisch/Programming/AlgortimeProjektIII/Projekt-del-3/Testfiles/text2.txt");
 
         int[] intArr = HuffWork.readingByte(text, out, arr);
         for (int i = 0; i < intArr.length; i++) {
@@ -39,8 +39,7 @@ public class Encode {
         System.out.println("Calling the Huff-constructor");
         HuffWork.HuffConstructor(intArr, strArr);
 
-        text = callIn("/home/bisch/Programming/AlgortimeProjektIII/Projekt-del-3/Testfiles/text.txt");
-        out = callOut("/home/bisch/Programming/AlgortimeProjektIII/Projekt-del-3/Testfiles/text3.txt");
+        text = HuffWork.callIn("/home/bisch/Programming/AlgortimeProjektIII/Projekt-del-3/Testfiles/text.txt");
         System.out.println("BOB!");
         int[] bob = HuffWork.readingByte2(text, out);
         BitOutputStream bos = new BitOutputStream(out);
@@ -54,15 +53,6 @@ public class Encode {
 
     }
 
-    public static FileInputStream callIn(String in) throws FileNotFoundException {
-        FileInputStream text = new FileInputStream(in);
-        return text;
-    }
-
-    public static FileOutputStream callOut(String in) throws FileNotFoundException {
-        FileOutputStream out = new FileOutputStream(in);
-        return out;
-    }
 }
 
 
