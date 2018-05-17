@@ -17,10 +17,9 @@ import java.io.IOException;
  */
 public class Encode {
 
-    public static void main(String[] Args) throws FileNotFoundException, IOException {
+    public static void main(String[] args) throws IOException {
         PQHeap pqh = new PQHeap(256);
         int[] arr = new int[256];
-        int[] arr2 = new int[256];
 
         String[] strArr = new String[256];
 
@@ -35,20 +34,24 @@ public class Encode {
         }
 
         text.close();
+        out.close();
 
         System.out.println("Calling the Huff-constructor");
         HuffWork.HuffConstructor(intArr, strArr);
 
         text = HuffWork.callIn("/home/bisch/Programming/AlgortimeProjektIII/Projekt-del-3/Testfiles/text.txt");
+        out = HuffWork.callOut("/home/bisch/Programming/AlgortimeProjektIII/Projekt-del-3/Testfiles/text3.txt");
         System.out.println("BOB!");
         int[] bob = HuffWork.readingByte2(text, out);
         BitOutputStream bos = new BitOutputStream(out);
         for (int i : bob) {
-            System.out.println(i + " : " + Long.parseLong(strArr[i]));
+            System.out.println(i + " : " + Integer.parseInt(strArr[i]));
             
-            bos.writeInt(Integer.parseInt(strArr[i]));
+            bos.writeInt(Integer.parseInt(strArr[i],2));
         }
+
         text.close();
+        out.close();
 
 
     }
