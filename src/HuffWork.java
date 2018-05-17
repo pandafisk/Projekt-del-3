@@ -16,6 +16,8 @@ import java.util.stream.IntStream;
  * @author Troels
  */
 public class HuffWork {
+	
+	//La Cor er en taber!
 
     static class HuffNode {
 
