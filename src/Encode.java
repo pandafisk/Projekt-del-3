@@ -23,30 +23,30 @@ public class Encode {
 
         String[] strArr = new String[256];
 
-        FileInputStream text = HuffWork.callIn("/home/bisch/Programming/AlgortimeProjektIII/Projekt-del-3/Testfiles/text.txt");
-        FileOutputStream out = HuffWork.callOut("/home/bisch/Programming/AlgortimeProjektIII/Projekt-del-3/Testfiles/text2.txt");
+        FileInputStream text = HuffWork.callIn("/home/bisch/Programming/Projekt-del-3/Testfiles/text.txt");
+        FileOutputStream out;
 
-        int[] intArr = HuffWork.readingByte(text, out, arr);
-        for (int i = 0; i < intArr.length; i++) {
-            if (intArr[i] > 0) {
-                System.out.println(i + ":" + intArr[i]);
-            }
-        }
+        int[] intArr = HuffWork.readingByte(text, arr);
 
         text.close();
-        out.close();
 
-        System.out.println("Calling the Huff-constructor");
+
         HuffWork.HuffConstructor(intArr, strArr);
 
-        text = HuffWork.callIn("/home/bisch/Programming/AlgortimeProjektIII/Projekt-del-3/Testfiles/text.txt");
-        out = HuffWork.callOut("/home/bisch/Programming/AlgortimeProjektIII/Projekt-del-3/Testfiles/text3.txt");
-        System.out.println("BOB!");
+        text = HuffWork.callIn("/home/bisch/Programming/Projekt-del-3/Testfiles/text.txt");
+        out = HuffWork.callOut("/home/bisch/Programming/Projekt-del-3/Testfiles/text2.txt");
+
         int[] bob = HuffWork.readingByte2(text, out);
         BitOutputStream bos = new BitOutputStream(out);
+        for (int i = 0; i < intArr.length; i++) {
+            System.out.println("byte: " +  i + " occurrences:" + intArr[i]);
+            if(intArr[i] > 0) {
+                bos.writeInt(i);
+            }
+        }
+        System.out.println(" ------------------------------------------- ");
         for (int i : bob) {
             System.out.println(i + " : " + Integer.parseInt(strArr[i]));
-            
             bos.writeInt(Integer.parseInt(strArr[i],2));
         }
 

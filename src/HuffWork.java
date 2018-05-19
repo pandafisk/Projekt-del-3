@@ -35,14 +35,11 @@ public class HuffWork {
         }
     }
 
-    public static int[] readingByte(FileInputStream file, FileOutputStream out, int[] arr) throws IOException {
+    public static int[] readingByte(FileInputStream file, int[] arr) throws IOException {
         int available = file.available();
-        System.out.println("the real available: " + available);
 
         for (int i = 0; i < available; i++) {
             int next = file.read();
-            System.out.print(next + " ");
-            out.write(next);
             arr[next] += 1;
         }
 
@@ -52,7 +49,6 @@ public class HuffWork {
         public static int[] readingByte2(FileInputStream file, FileOutputStream out) throws IOException {
         int available = file.available();
         int[] arr = new int[available];
-        System.out.println("the real available: " + available);
 
         for (int i = 0; i < available; i++) {
             int next = file.read();
@@ -128,8 +124,4 @@ public class HuffWork {
         FileOutputStream out = new FileOutputStream(in);
         return out;
     }
-
-
-
-
 }
