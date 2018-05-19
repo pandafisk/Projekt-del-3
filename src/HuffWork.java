@@ -46,13 +46,12 @@ public class HuffWork {
         return arr;
     }
     
-        public static int[] readingByte2(FileInputStream file, FileOutputStream out) throws IOException {
+        public static int[] readingByte2(FileInputStream file) throws IOException {
         int available = file.available();
         int[] arr = new int[available];
 
         for (int i = 0; i < available; i++) {
             int next = file.read();
-            // System.out.println(next + " ");
             arr[i] = next;
         }
 
@@ -82,10 +81,9 @@ public class HuffWork {
         System.out.println("count: " + count);
     }
 
-    public static void HuffConstructor(int[] intArr, String[] strArr) {
+    public static void HuffConstructor(int[] intArr, String[] strArr, PQHeap pq) {
 
         int n = intArr.length;
-        PQ pq = new PQHeap(256);
 
         for (int i = 0; i < n; i++) {
 

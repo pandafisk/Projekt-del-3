@@ -31,12 +31,12 @@ public class Encode {
         text.close();
 
 
-        HuffWork.HuffConstructor(intArr, strArr);
+        HuffWork.HuffConstructor(intArr, strArr, pqh);
 
         text = HuffWork.callIn("/home/bisch/Programming/Projekt-del-3/Testfiles/text.txt");
         out = HuffWork.callOut("/home/bisch/Programming/Projekt-del-3/Testfiles/text2.txt");
 
-        int[] bob = HuffWork.readingByte2(text, out);
+        int[] bob = HuffWork.readingByte2(text);
         BitOutputStream bos = new BitOutputStream(out);
         for (int i = 0; i < intArr.length; i++) {
             System.out.println("byte: " +  i + " occurrences:" + intArr[i]);
