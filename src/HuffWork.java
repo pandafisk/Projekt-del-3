@@ -10,6 +10,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.stream.IntStream;
 
 /**
@@ -35,27 +36,19 @@ public class HuffWork {
         }
     }
 
-    public static int[] readingByte(FileInputStream file, int[] arr) throws IOException {
-        int available = file.available();
+        public static String[] readingByte(FileInputStream file, int[] arr, String[] strArr) throws IOException {
+        String[] intarr = new String[256];
+            System.out.println("");
+            System.out.println("Available Bytes");
+            for (int i = 0; i < arr.length; i++) {
 
-        for (int i = 0; i < available; i++) {
-            int next = file.read();
-            arr[next] += 1;
+            if (arr[i] > 0) {
+                System.out.println("byte " + i + " Code:" + strArr[i]);
+                intarr[i] = strArr[i];
+            }
         }
 
-        return arr;
-    }
-    
-        public static int[] readingByte2(FileInputStream file) throws IOException {
-        int available = file.available();
-        int[] arr = new int[available];
-
-        for (int i = 0; i < available; i++) {
-            int next = file.read();
-            arr[i] = next;
-        }
-
-        return arr;
+        return intarr;
     }
 
     public static void getCode(HuffNode root, String[] strArr, String s) {
@@ -72,45 +65,44 @@ public class HuffWork {
 
     }
 
-    public static void printCode (String[] strArr){
-        int count = 0;
-        for (int str = 0; str < strArr.length; str++){
-            count++;
-            System.out.println("byte " + str + ":" + strArr[str]);
-        }
-        System.out.println("count: " + count);
-    }
+    public static void HuffConstructor(int[] intArr, String[] strArr) {
 
-    public static void HuffConstructor(int[] intArr, String[] strArr, PQHeap pq) {
+        int counter = (int) IntStream.of(intArr)
+                .filter(n -> n != 0)
+                .count();
 
-        int n = intArr.length;
+        if (counter > 0) {
+            PQHeap pq = new PQHeap(counter);
 
-        for (int i = 0; i < n; i++) {
 
-            HuffNode hn = new HuffNode(i);
+            for (int i = 0; i < intArr.length; i++) {
 
-            hn.data = intArr[i];
+                    HuffNode hn = new HuffNode(i);
 
-            hn.left = null;
-            hn.right = null;
+                    hn.data = intArr[i];
 
-            pq.insert(new Element(hn.key, hn));
-        }
+                    hn.left = null;
+                    hn.right = null;
 
-        HuffNode root = null;
+                    pq.insert(new Element(hn.key, hn));
+            }
 
-        for (int i = 1; i < intArr.length; i++) {
 
-            Element x = pq.extractMin();
-            Element y = pq.extractMin();
-            HuffNode node = new HuffNode(x.key + y.key);
-            node.left = ((HuffNode) x.data);
-            node.right = ((HuffNode) y.data);
-            root = node;
+                HuffNode root = null;
 
-            pq.insert(new Element(node.key, node));
-        }
-        getCode(root, strArr, "");
+                for (int i = 1; i < intArr.length; i++) {
+
+                    Element x = pq.extractMin();
+                    Element y = pq.extractMin();
+                    HuffNode node = new HuffNode(x.key + y.key);
+                    node.left = ((HuffNode) x.data);
+                    node.right = ((HuffNode) y.data);
+                    root = node;
+
+                    pq.insert(new Element(node.key, node));
+                }
+                getCode(root, strArr, "");
+            }
     }
 
     public static FileInputStream callIn(String in) throws FileNotFoundException {

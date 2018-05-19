@@ -18,39 +18,60 @@ import java.io.IOException;
 public class Encode {
 
     public static void main(String[] args) throws IOException {
-        PQHeap pqh = new PQHeap(256);
         int[] arr = new int[256];
-
         String[] strArr = new String[256];
+        int next;
+        String bits = "";
 
         FileInputStream text = HuffWork.callIn("/home/bisch/Programming/Projekt-del-3/Testfiles/text.txt");
-        FileOutputStream out;
+        FileOutputStream out = HuffWork.callOut("/home/bisch/Programming/Projekt-del-3/Testfiles/text2.txt");
 
-        int[] intArr = HuffWork.readingByte(text, arr);
-
-        text.close();
-
-
-        HuffWork.HuffConstructor(intArr, strArr, pqh);
-
-        text = HuffWork.callIn("/home/bisch/Programming/Projekt-del-3/Testfiles/text.txt");
-        out = HuffWork.callOut("/home/bisch/Programming/Projekt-del-3/Testfiles/text2.txt");
-
-        int[] bob = HuffWork.readingByte2(text);
+        BitInputStream bis = new BitInputStream(text);
         BitOutputStream bos = new BitOutputStream(out);
-        for (int i = 0; i < intArr.length; i++) {
-            System.out.println("byte: " +  i + " occurrences:" + intArr[i]);
-            if(intArr[i] > 0) {
-                bos.writeInt(i);
+
+
+        while ((next = bis.readBit()) != -1){
+            bits += "" + next;
+            if (bits.length() % 8 == 0){
+                arr[Integer.parseInt(bits,2)]++;
+                bits = "";
             }
         }
-        System.out.println(" ------------------------------------------- ");
-        for (int i : bob) {
-            System.out.println(i + " : " + Integer.parseInt(strArr[i]));
-            bos.writeInt(Integer.parseInt(strArr[i],2));
+
+        int count = 0;
+        for (int i :  arr) {
+            System.out.println("byte: " + count + " occurrences:" + i);
+                bos.writeInt(i);
+                count++;
         }
 
-        text.close();
+        HuffWork.HuffConstructor(arr, strArr);
+
+        /*
+        for ( String s : strArr){
+            System.out.println(s);
+        }
+*/
+
+        text = HuffWork.callIn("/home/bisch/Programming/Projekt-del-3/Testfiles/text.txt");
+        String[] bob = HuffWork.readingByte(text,arr,strArr);
+
+        /*for (String s : bob){
+            System.out.println(s);
+        }
+*/
+
+        for (String string : strArr){
+            bits += "" + string;
+            if (bits.length() % 8 == 0) {
+                for (char c : bits.toCharArray()) {
+                    bos.writeBit(Integer.parseInt(Character.toString(c)));
+                }
+            }
+            }
+
+
+        bis.close();
         out.close();
 
 
@@ -58,35 +79,3 @@ public class Encode {
 
 }
 
-
-
-
-
-
-
-//
-//        System.out.println("Inserting 8,3,1,6,10,14,13,4,7");
-//        int[] insertValues = {8, 3, 1, 6, 10, 14, 13, 4, 7};
-//        for (int i = 0; i < insertValues.length; i++) {
-//            d.insert(insertValues[i]);
-//        }
-//        d.orderedTraversal();
-//        HuffWork.printCode(strArr);
-//            System.out.print(i);
-//            bos.writeInt(i);
-//        }
-//        int bit;
-//        int[] frequencies = new int[256];
-//        String readBits = "";
-//        String[] encodedTable = null;
-//
-//        // Read the input file as bits; seperate at 8 bits (1 byte).
-//        // Add one to the frequency of the byte on occurrence.
-//        bit = in.readBit();
-//        while (bit != -1) {
-//            System.out.println(bit);
-//        }
-//        for (int i : intArr) {
-//            System.out.print(i);
-//            bos.writeInt(i);
-//        }
