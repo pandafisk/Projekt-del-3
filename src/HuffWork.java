@@ -1,10 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-package src;
+//Udviklet og afleveret af:
+//	Mikkel La Cour - midor17
+//	Mathias Bischoff - mbisc17
+//	Troels Have - trhav17
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

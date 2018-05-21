@@ -1,21 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-package src;
+//Udviklet og afleveret af:
+//	Mikkel La Cour - midor17
+//	Mathias Bischoff - mbisc17
+//	Troels Have - trhav17
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.stream.IntStream;
 
-/**
- *
- * @author Troels
- */
 public class Encode {
 
 
@@ -24,14 +15,16 @@ public class Encode {
         String[] strArr;
         int next;
         String bits = "";
-
-        FileInputStream text = HuffWork.callIn("/home/bisch/Programming/Projekt-del-3/Testfiles/text.txt");
-        FileOutputStream out = HuffWork.callOut("/home/bisch/Programming/Projekt-del-3/Testfiles/text2.txt");
+        
+//        1. gennemlæsning - Bygger Huffman-træet og encoder
+        FileInputStream text = HuffWork.callIn(args[0]);
+        FileOutputStream out = HuffWork.callOut(args[1]);
 
         BitInputStream bis = new BitInputStream(text);
         BitOutputStream bos = new BitOutputStream(out);
 
-
+//        Læser inputfil og sepererer ved 8 bits (1 byte).
+//        lægger 1 til frekvensen for den omhandlende byte
         while ((next = bis.readBit()) != -1) {
             bits += "" + next;
             if (bits.length() % 8 == 0) {
@@ -40,23 +33,25 @@ public class Encode {
             }
         }
 
+//        skriver frekvenserne til output
         int count = 0;
         for (int i : arr) {
-            System.out.println("byte: " + count + " occurrences:" + i);
             bos.writeInt(i);
             count++;
         }
 
-
+//        Encoder filen ved hjælp af vores metoder
         Element e = HuffWork.HuffConstructor(arr);
         strArr = HuffWork.encode((HuffWork.HuffNode) e.data);
 
         bis.close();
 
-
-        text = HuffWork.callIn("/home/bisch/Programming/Projekt-del-3/Testfiles/text.txt");
+//        2. gennemlæsning - udskriver kodningen til output filen
+        text = HuffWork.callIn(args[0]);
         bis = new BitInputStream(text);
-
+        
+//        læser input filen igen og udskriver karaktererne fra den 
+//        encoded tabel.
         while ((next = bis.readBit()) != -1) {
             bits += "" + next;
             if (bits.length() % 8 == 0) {

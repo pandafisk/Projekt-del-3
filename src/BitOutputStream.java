@@ -9,8 +9,6 @@
  * @author Troels
  */
 
-package src;
-
 import java.io.IOException;
 import java.io.OutputStream;
 
