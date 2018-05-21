@@ -70,7 +70,7 @@ public class HuffWork {
         if (counter > 0) {
             PQ pq = new PQHeap(counter);
             for (int i = 0; i < arr.length; i++){
-                if (arr[i] > 0){
+                if (arr[i] != 0){
                     pq.insert(new Element(arr[i], new HuffNode(i)));
                 }
             }
