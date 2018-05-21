@@ -55,6 +55,26 @@ public class HuffWork {
         return strArr;
     }
 
+    public static Map<String, Integer> decode(HuffNode root) {
+        Map<String, Integer> map = new HashMap<>();
+        if (root.right != null || root.left != null) {
+            decoding(root, map, "");
+        } else {
+            decoding(root, map, "0");
+        }
+        return map;
+    }
+
+    //    genererer rekursivt en bitstreng baseret på Huffman-træet
+    private static void decoding(HuffNode node, Map<String, Integer> map, String s) {
+        if (node.left == null && node.right == null) {
+            map.put(s, node.key);
+        } else {
+            decoding(node.left, map, s + "0");
+            decoding(node.right, map, s + "1");
+        }
+    }
+
 
     public static Element HuffConstructor(int[] arr) {
         int counter = 0;
