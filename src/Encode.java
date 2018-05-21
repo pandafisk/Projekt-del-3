@@ -51,6 +51,12 @@ public class Encode {
         Element e = HuffWork.HuffConstructor(arr);
         strArr = HuffWork.encode((HuffWork.HuffNode) e.data);
 
+        System.out.println("-----------------------------------------------------");
+
+        for (String s : strArr) {
+
+            System.out.println(s);
+        }
         bis.close();
 
 
