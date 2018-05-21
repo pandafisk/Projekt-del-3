@@ -21,7 +21,7 @@ public class Encode {
 
     public static void main(String[] args) throws IOException {
         int[] arr = new int[256];
-        String[] strArr = null;
+        String[] strArr;
         int next;
         String bits = "";
 

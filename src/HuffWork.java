@@ -36,7 +36,7 @@ public class HuffWork {
     }
 
 
-    public static void getCode(HuffNode root, String[] strArr, String s) {
+    private static void getCode(HuffNode root, String[] strArr, String s) {
         if (root.left == null && root.right == null) {
             strArr[root.key] = s;
             return;
