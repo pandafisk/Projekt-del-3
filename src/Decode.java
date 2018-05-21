@@ -58,7 +58,6 @@ public class Decode {
 //    bitstrengen bliver nulstillet, så resten kan decodes
                 bits = "";
                 counter--;
-                if (counter < 1) break;
             }
         }
 

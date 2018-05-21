@@ -4,11 +4,7 @@
     <list default="true" id="e88ff608-51fe-437b-916f-4ad9af296a64" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Testfiles/text.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Testfiles/text.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Testfiles/text2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Testfiles/text2.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Testfiles/text3.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Testfiles/text3.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Decode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Decode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HuffWork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HuffWork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="HuffWork.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="HuffWork.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/HuffWork.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="40" column="33" lean-forward="true" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
+            <state>
+              <caret lean-forward="true" />
             </state>
           </provider>
         </entry>
@@ -33,7 +29,7 @@
         <entry file="file://$USER_HOME$/Downloads/HuffWork.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
-              <caret line="80" column="4" lean-forward="true" selection-start-line="80" selection-start-column="4" selection-end-line="102" selection-end-column="5" />
+              <caret line="80" column="4" selection-start-line="80" selection-start-column="4" selection-end-line="102" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -60,7 +56,7 @@
         <entry file="file://$PROJECT_DIR$/src/Encode.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="195">
-              <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
+              <caret line="48" selection-start-line="48" selection-end-line="48" />
             </state>
           </provider>
         </entry>
@@ -74,11 +70,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Decode.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Decode.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Decode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="47" column="16" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="16" />
+            <state relative-caret-position="196">
+              <caret line="39" column="29" lean-forward="true" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -87,7 +83,7 @@
         <entry file="file://$USER_HOME$/Downloads/Decode.java">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret lean-forward="true" selection-end-line="60" selection-end-column="1" />
+              <caret selection-end-line="60" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -110,13 +106,13 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$USER_HOME$/Downloads/Decode.java" />
-        <option value="$PROJECT_DIR$/src/Decode.java" />
         <option value="$PROJECT_DIR$/src/Encode.java" />
         <option value="$PROJECT_DIR$/src/HuffWork.java" />
+        <option value="$PROJECT_DIR$/src/Decode.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="960" />
     <option name="width" value="960" />
     <option name="height" value="1080" />
@@ -159,7 +155,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Encode">
+  <component name="RunManager" selected="Application.Decode">
     <configuration name="Decode" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="src.Decode" />
       <module name="Projekt-del-3" />
@@ -229,8 +225,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Encode" />
         <item itemvalue="Application.Decode" />
+        <item itemvalue="Application.Encode" />
       </list>
     </recent_temporary>
   </component>
@@ -248,7 +244,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1080" extended-state="7" />
+    <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -259,7 +255,7 @@
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="6" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3043033" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.16188525" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="6" />
@@ -645,7 +641,7 @@
     <entry file="file://$USER_HOME$/Downloads/Decode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret lean-forward="true" selection-end-line="60" selection-end-column="1" />
+          <caret selection-end-line="60" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -659,28 +655,28 @@
     <entry file="file://$USER_HOME$/Downloads/HuffWork.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
-          <caret line="80" column="4" lean-forward="true" selection-start-line="80" selection-start-column="4" selection-end-line="102" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Decode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="47" column="16" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="16" />
+          <caret line="80" column="4" selection-start-line="80" selection-start-column="4" selection-end-line="102" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Encode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
-          <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/HuffWork.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="40" column="33" lean-forward="true" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
+        <state>
+          <caret lean-forward="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Decode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="39" column="29" lean-forward="true" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
         </state>
       </provider>
     </entry>
